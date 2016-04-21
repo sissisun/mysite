@@ -1,0 +1,13 @@
+<script type="text/javascript">
+	var htmlEncode = function(s) {
+		var div = document.createElement('div');
+		div.appendChild(document.createTextNode(s));
+		return div.innerHTML;
+	};
+
+	var htmlDecode = function(s) {
+		var div = document.createElement('div');
+		div.innerHTML = s;
+		return div.innerText;
+	};
+</script>

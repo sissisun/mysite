@@ -1,0 +1,20 @@
+.clock-wrapper {
+	height: 550px;
+	
+	padding-top: 50px;
+	text-align: center;
+	background: #333;
+/*    background: -webkit-linear-gradient(red, blue); Safari 5.1 - 6.0
+  background: -o-linear-gradient(red, blue); Opera 11.1 - 12.0
+  background: -moz-linear-gradient(red, blue); Firefox 3.6 - 15
+  background: linear-gradient(red, blue); 标准的语法  */
+
+}
+
+#comment-form {
+	padding: 50px 0;
+}
+.form-header {
+	margin-bottom: 50px;
+	text-align: center;
+}

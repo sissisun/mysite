@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%=pageTitle %></title>
+	<link rel="stylesheet" href='/styles/bootstrap.css'/>
+	<link rel="stylesheet" href='/styles/site.css'/>
+	<link rel="stylesheet" href='/styles/article.css'/>
+	<% include ../config/requirejsConfig.ejs %>
+</head>
+<body>
+	<div id="nav-bar"></div>
+	<div id="banner"></div>
+	<div id="article-content">
+		<div class="container">
+			<div class="list-group">
+				<a href="#" class="list-group-item">
+					<h5 class="item-title">第一篇文章</h5>
+					<div class="item-describe">
+						<p>这是第一篇文章的描述</p>
+					</div>
+					<div class="item-time">
+						<span>2015-5-5 12:23:34</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="footer"></div>
+	<script type="text/javascript" src="/scripts/app/article/main.js"></script> 
+</body>
+</html>

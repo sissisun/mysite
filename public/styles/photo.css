@@ -1,0 +1,19 @@
+body {
+	background-color: #333;
+}
+
+#photo-content {
+	min-height: 700px;
+	padding: 50px;
+}
+
+#photo-content img {
+	width: auto;
+	height: auto;
+	max-width: 150px;
+	max-height: 150px;
+	border: solid 6px #fff;
+	position: absolute;
+	cursor: pointer;
+	transform-origin: left top;
+}

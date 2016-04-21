@@ -1,0 +1,32 @@
+html,body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Microsoft Yahei','Arial','Simhei','SimSun','sans-serif';
+}
+.bg-banner {
+	min-height: 500px;
+	background-image: url('/styles/images/bg1.jpg');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: #359190;
+}
+#footer {
+	color: #777;
+	padding: 30px 0;
+	border-top: solid 1px #e5e5e5;
+	margin-top: 70px;
+	background-color: #F1F1F1;
+}
+.footer-bottom {
+	font-size: 13px;
+}
+hr {
+	border: solid 1px #C5C5C5;
+}
+h5, .h5 {
+	font-size: 16px;
+}
+hide {
+	display: none;
+}
