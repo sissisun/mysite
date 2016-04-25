@@ -63,10 +63,23 @@
 				}
 				
 			},200));
-			$(document).one('click', 'img',function() {
+			$(document).one('click', 'img', function() {
 				self.firstLoad = false;
 				self.afterFirstClick();
+				setTimeout(function() {
+					self.initHoverEvent();
+				}, 1000);
 			});
+		},
+
+		initHoverEvent: function() {
+			var self = this;
+
+			$('img').hover(function() {
+				console.log(444)
+			}, function() {
+				console.log(34);
+			})
 		},
 
 		setImageTemplate: function() {

@@ -39,6 +39,7 @@ require(['react','jqExtend','jquery'], function(React) {
 				success: function(data) {
 					if(data.success) {
 						alert('提交成功！');
+						window.location.href = '/article';
 					}
 				}.bind(this),
 				error: function() {

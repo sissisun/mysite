@@ -24,7 +24,7 @@
 			return result;
 		},
 
-		getFormValue: function(dataName, needEncode) {
+		getFormValue: function(needEncode, dataName) {
 			var dataName = dataName || 'name',
 				resultObj = {};
 

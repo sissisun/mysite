@@ -24,10 +24,10 @@ require(['react'], function(React) {
 	var ArticleItem = React.createClass({
 		render: function() {
 			var ArticleItemNodes = this.props.data.map(function(articleItem, index) {
-				return (<a href="#" className="list-group-item" key={'article' + index}>
+				return (<a href={"/article/detail?id=" + articleItem._id} className="list-group-item" key={'article' + index}>
 					<ArticleTitle title={articleItem.title}></ArticleTitle>
 					<ArticleDescribe describe={articleItem.describe}></ArticleDescribe>
-					<AticleTime time={articleItem.time}></AticleTime>
+					<AticleTime time={articleItem.createTime}></AticleTime>
 				</a>)
 			});
 
@@ -38,15 +38,26 @@ require(['react'], function(React) {
 
 	var ArticleList = React.createClass({
 		getInitialState: function() {
-			return {data: [
-					{'title': '第一篇文章', describe: '这是第一篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第二篇文章', describe: '这是第二篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第三篇文章', describe: '这是第三篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第四篇文章', describe: '这是第四篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第五篇文章', describe: '这是第五篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第六篇文章', describe: '这是第六篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第七篇文章', describe: '这是第七篇文章的描述', time: '2016-4-15 13:10:11'},
-				]}
+			return {data: []}
+		},
+		componentDidMount: function() {
+			this.loadArticlesFromServer();
+		},
+		loadArticlesFromServer: function() {
+			$.ajax({
+				url: '/article/getArticles',
+				type: 'GET',
+				dataType: 'json',
+				cache: true,
+				success: function(data) {
+					if(data.success) {
+						this.setState({data: data.body});
+					}
+				}.bind(this),
+				error: function() {
+
+				}.bind(this)
+			}) 
 		},
 		render: function() {
 			return (<div className="container">

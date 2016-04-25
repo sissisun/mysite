@@ -1,0 +1,50 @@
+body {
+	background-color: #ebebeb;
+}
+
+.article {
+	padding: 35px;
+	background: #ffffff;
+	margin-bottom: 35px;
+	position: relative;
+	overflow: hidden;
+}
+.article .article-head {
+	text-align: center;
+}
+.article .article-head .article-title {
+	margin: 0;
+}
+.article .article-head .article-meta {
+	margin-top: 15px;
+	color: #959595;
+}
+.article .article-head .article-meta .author {
+	margin-right: 7px;
+}
+.article .article-content {
+	margin-top: 30px;
+}
+.widget {
+	margin-bottom: 35px;
+}
+.widget .title {
+	margin-top: 0;
+	padding-bottom: 7px;
+	border-bottom: 1px solid #ebebeb;
+	margin-bottom: 21px;
+	position: relative;
+}
+.widget .title:after {
+	content: "";
+    width: 90px;
+    height: 1px;
+    background: #1fa67a;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+}
+.sidebar .widget {
+	background: #ffffff;
+	padding: 21px 30px;
+}

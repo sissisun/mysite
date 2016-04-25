@@ -8,11 +8,10 @@ require(['react','jqExtend','jquery'], function(React) {
 		},
 		getFormValue: function() {
  
-
-
 		}
 	};
 	var ArticleForm = React.createClass({
+		mixins: [FormSubmitMixin],
 		getInitialState: function() {
 			return {need_code: "0"};
 		},
@@ -25,7 +24,7 @@ require(['react','jqExtend','jquery'], function(React) {
 		},
 		handleSubmit: function() {
 			var $articleForm = $('#article-form'),
-				params = $articleForm.getFormValue();
+				params = $articleForm.getFormValue(true);
 
 			if(!$articleForm.checkNullInput()) {
 				alert('请填写未完成的！');

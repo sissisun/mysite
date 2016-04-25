@@ -1,4 +1,4 @@
-require(['react'], function(React) {
+require(['react', 'jquery'], function(React) {
 	var ArticleTitle = React.createClass({displayName: "ArticleTitle",
 		render: function() {
 			return(React.createElement("h5", {classNameName: "item-title"}, this.props.title))
@@ -38,22 +38,32 @@ require(['react'], function(React) {
 
 	var ArticleList = React.createClass({displayName: "ArticleList",
 		getInitialState: function() {
-			return {data: [
-					{'title': '第一篇文章', describe: '这是第一篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第二篇文章', describe: '这是第二篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第三篇文章', describe: '这是第三篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第四篇文章', describe: '这是第四篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第五篇文章', describe: '这是第五篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第六篇文章', describe: '这是第六篇文章的描述', time: '2016-4-15 13:10:11'},
-					{'title': '第七篇文章', describe: '这是第七篇文章的描述', time: '2016-4-15 13:10:11'},
-				]}
+			return {data: []}
 		},
+		componentDidMount: function() {
+			this.loadArticlesFromServer();
+		},
+		loadArticlesFromServer: function() {
+			$.ajax({
+				url: '/article/getArticles',
+				type: 'GET',
+				dataType: 'json',
+				cache: true,
+				success: function(data) {
+					this.setState(data, data);
+				}.bind(this),
+				error: function() {
+
+				}.bind(this)
+			}) 
+		},
+
 		render: function() {
 			return (React.createElement("div", {className: "container"}, 
 			
 				React.createElement(ArticleItem, {data: this.state.data})
 			
-		))
+			))
 		}
 	});
 
