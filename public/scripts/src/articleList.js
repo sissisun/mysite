@@ -1,4 +1,4 @@
-require(['react'], function(React) {
+require(['react', 'jquery'], function(React) {
 	var ArticleTitle = React.createClass({
 		render: function() {
 			return(<h5 classNameName="item-title">{this.props.title}</h5>)

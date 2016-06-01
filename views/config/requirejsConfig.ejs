@@ -21,8 +21,13 @@
 			navigation: 'build/navigation.js',
 
 			//component
-			photoWard: 'component/private/jquery_photo_ward.js',
+			
 			canvas_clock: 'component/private/canvas_clock.js',
+			coverLayer: 'component/private/jquery_layer.js',
+			dialog: 'component/private/jquery_dialog.js',
+			photoWard: 'component/private/jquery_photo_ward.js',
+			formRadio: 'component/private/jquery_radio.js',
+			formChecbox: 'component/private/jquery_checkbox.js',
 
 			//lib
 			jqExtend: 'libs/private/jquery_extend.js'
@@ -34,7 +39,8 @@
 			react : {
 				exports: 'React'
 			},
-			bootstrap: ['jquery']
+			bootstrap: ['jquery'],
+			photoWard: ['coverLayer']
 		}
 	})
 </script>

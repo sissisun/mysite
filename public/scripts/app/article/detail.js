@@ -5,7 +5,6 @@ require(['react','bootstrap','jquery','footer','article', 'navigation'], functio
 		init: function() {
 			var self = this;
 
-			
 		},
 
 		initElements: function() {

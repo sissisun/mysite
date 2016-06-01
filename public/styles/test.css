@@ -1,0 +1,90 @@
+html {
+	height: 100%;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+}
+body {
+	font: 14px/1.8em 'Microsoft Yahei','Arial','Simhei','SimSun','sans-serif';
+	color: #414141;
+	background-image: url('./images/bg_before.png');
+	position: relative;
+}
+
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	content: '.';
+	display: inline-block;
+	font-size: 0;
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+
+.wrapper {
+	width: 1000px;
+	margin: 0 auto;
+	padding-bottom: 35px;
+}
+#bg-before {
+	width: 100%;
+	height: 111px;
+	background: url('./images/bg_back.png') repeat-x;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.header {
+	height: 77px;
+	border-bottom: solid 1px #e0e0e0;
+	padding-top: 40px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 30px;
+}
+.header #title {
+	font-weight: bold;
+	color: #2581c4;
+}
+.content {
+	padding: 20px 0;
+}
+.content .brand-item-wrapper {
+	width: 1000px;
+	background: url('./images/desk.png') no-repeat center bottom;
+	padding-bottom: 89px;
+	font-size: 0;
+	line-height: 0;
+	position: relative;
+}
+.brand-item-wrapper .brand-item {
+	display: inline-block;
+	width: 260px;
+	height: 180px;
+	line-height: 180px;
+	background-image: url('./images/brand_bg.png');
+	background-color: #fff;
+	margin-left: 53px;
+	box-shadow: 2px 0px 1px #dcdcdc, -2px -2px 1px #dcdcdc;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: bottom;
+}
+.brand-item-wrapper .brand-item img {
+	vertical-align: middle;
+	border: none;
+	border-width: 0;
+	outline: none;
+}
+.book-icon {
+	display: inline-block;
+	width: 190px;
+	height: 103px;
+	background: url('./images/book.png');
+	margin: 0 0 -5px 123px;
+	vertical-align: bottom;
+}

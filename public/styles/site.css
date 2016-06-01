@@ -66,17 +66,6 @@ hide {
 	font-size: 2em;
 	cursor: pointer;
 }
-.fa {
-	display: inline-block;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transform: translate(0, 0);
-}
-.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
-	content: "\f0c9";
-}
 
 @media (max-width: 767px) {
 	.navigation .menu li {

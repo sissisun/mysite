@@ -6884,7 +6884,9 @@ jQuery.each({
 
 jQuery.fn.extend({
 	css: function( name, value ) {
+
 		return access( this, function( elem, name, value ) {
+
 			var styles, len,
 				map = {},
 				i = 0;

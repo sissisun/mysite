@@ -1,12 +1,18 @@
 (function(fn) {
+	var layer;
 	if(typeof module === 'object' && typeof module.exports === 'object') {
-		module.exports = fn();
+		try { layer = require('coverLayer'); } catch(e) {}
+		module.exports = fn(layer);
 	} else if(typeof define === 'function' && define.amd) {
-		define(['jquery'], fn)
+		define(function(req) {
+			var id = 'coverLayer'; //layer模块一定要在之前加载
+			try {  layer = req(id);} catch(e) {console.log('导入出错')};
+			return fn(layer);
+		})
 	} else {
-		fn();
+		window.photoWard = fn(window.layer);
 	}
-}(function() {
+}(function(layer) {
 	var defaultOpts = {
 		leftPadding: 50,
 		topPadding: 50,
@@ -19,6 +25,8 @@
 		imageTemplFun: null,
 		getPhotoArr: null
 	};
+
+	var hasLayer = typeof layer === 'object';
 
 	var photoWard = function(opts) {
 		this.opts = $.extend(true, {}, defaultOpts, opts || {});
@@ -35,6 +43,7 @@
 			self.getPhotoSrc();
 			self.initEvents();
 			self.renderPhotos();
+			self.initComponent();
 		},
 
 		initElements: function() {
@@ -50,6 +59,11 @@
 			self.photoArr = [];
 			self.originalHeight = self.$photoContent.height();
 			self.firstLoad = true;
+		},
+
+		initComponent: function() {
+			var self = this;	
+
 		},
 
 		initEvents: function() {
@@ -75,11 +89,28 @@
 		initHoverEvent: function() {
 			var self = this;
 
-			$('img').hover(function() {
-				console.log(444)
-			}, function() {
-				console.log(34);
-			})
+			$('img').click(function() {
+				var $this = $(this);
+
+				layer.open({
+					message: '<div style="background: #fff;"><img style="" class="bigImg" src="" alt=""/></div>',
+					needCloseBtn: true,
+					needLeftBtn: true,
+					needRightBtn: true,
+					leftBtnEvent: function() {
+						self.leftBtnEvent();
+						layer.setLayerPosition();
+					},
+					rightBtnEvent: function() {
+						self.rightBtnEvent();
+						layer.setLayerPosition();
+					},
+					onBeforeOpen: function() {
+						self.setLayerSrc($this);
+					}
+				});
+							
+			});
 		},
 
 		setImageTemplate: function() {
@@ -116,7 +147,7 @@
 			var self = this;
 
 			for(var i=0; i<self.photoArr.length; i++) {
-				var $img = $('<img />').attr('src', self.photoArr[i]),
+				var $img = $('<img />').attr({'src': self.photoArr[i], 'data-src': self.photoArr[i]}),
 					angle = self.opts.rotateDeg/self.photoArr.length;
 					self.$imgs.push($img);
 				
@@ -182,7 +213,7 @@
 			self.$photoContent.height(topSize * lineHeight > self.originalHeight ? topSize * lineHeight + topPadding : self.originalHeight);
 		},
 
-		debounce:function(fun,wait,immediate){
+		debounce: function(fun,wait,immediate){
 			var timer;
 			return function(){
 				var args=arguments,context=this,
@@ -200,6 +231,35 @@
 					fun.apply(context,args);
 				}
 			};
+		},
+
+		setLayerSrc: function($this) {
+			var self = this;
+				self.currentIndex = $this.index();
+
+			var dataSrc = $this.attr('data-src');
+			$('.bigImg').attr('src', dataSrc);
+		},
+
+		leftBtnEvent: function() {
+			var self = this;
+
+			if(--self.currentIndex < 0) {
+				self.currentIndex = 0;
+				return;
+			}
+			$('.bigImg').attr('src', self.photoArr[self.currentIndex]);
+		},
+
+		rightBtnEvent: function() {
+			var self = this,
+				photoArr = self.photoArr;
+
+			if(++self.currentIndex > photoArr.length-1) {
+				self.currentIndex = photoArr.length-1;
+				return;
+			}
+			$('.bigImg').attr('src', photoArr[self.currentIndex]);
 		}
 	};
 

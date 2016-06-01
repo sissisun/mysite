@@ -1,4 +1,4 @@
-require(['react','bootstrap','jquery','navBar','banner','footer','articleList'], function(React) {
+require(['react','coverLayer', 'bootstrap','jquery','navBar','banner','footer','articleList'], function(React) {
 	
 	var article = {
 

@@ -1,4 +1,4 @@
-require(['react','photoWard','bootstrap','jquery','navBar','footer'], function(React, PhotoWard) {
+require(['react','coverLayer','photoWard','bootstrap','jquery','navBar','footer'], function(React, Layer, PhotoWard) {
 	
 	var photo = {
 

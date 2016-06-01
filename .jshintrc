@@ -1,0 +1,14 @@
+{
+	"boss": false,
+	"curly": true,
+	"eqeqeq": false,
+
+	"newcap": true,
+	"noarg": true,
+	"undef": true,
+	"regexp": true,
+	"browser": true,
+	"devel": true,
+	"node": true
+
+}

@@ -7,7 +7,7 @@ require(['react'], function(React) {
 					<div className="navbar-header">
 						<span className="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
                         	<span className="sr-only">Toggle navigation</span>
-                        	<i className="fa fa-bars"></i>
+                        	<i className="fa fa-bars icon-align-justify"></i>
                         </span>
 					</div>
 					<div className="collapse navbar-collapse menu" id="main-menu">
